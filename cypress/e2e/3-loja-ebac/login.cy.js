@@ -4,9 +4,9 @@
         beforeEach(() => {
             cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
         });
-        afterEach(() => {
-            cy.screenshot()
-        });
+       /// afterEach(() => {
+           ///cy.screenshot()
+        /// });
 
         it('Deve fazer login com sucesso',() =>{
             cy.get('#username').type('jessicamelo2015@gmail.com')
@@ -33,5 +33,9 @@
             cy.get('.woocommerce-error').should('contain','Erro: A senha fornecida para o e-mail jessicamelo2015@gmail.com está incorreta. Perdeu a senha?')
             cy.get('.woocommerce-error').should('exist')
         });
+
+        
+
+        
 
         })
