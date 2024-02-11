@@ -1,12 +1,13 @@
 {
   "dependencies": {
-    "cypress": "^13.6.4"
+    "@faker-js/faker": "^8.4.0",
+    "cypress": "^13.6.4",
+    "faker": "^5.5.3"
   },
   "name": "teste-ebac-ui",
   "description": "",
   "version": "1.0.0",
   "main": "cypress.config.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
