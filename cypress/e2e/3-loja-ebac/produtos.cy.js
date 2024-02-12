@@ -1,16 +1,26 @@
 /// <reference types="cypress"/>
+import produtosPage from "../../support/page-objects/produtos.page";
+
 
 describe('Funcionalidade:Produtos', () => {
     beforeEach(() => {
-        cy.visit('produtos')
+        produtosPage.visitarUrl()
     });
     it('Deve selecionar um produto da lista',()=>{
-        cy.get('.product-block')
-        //.first()
-        //.last()
-        .contains('Apollo Running Short')  
-        //.eq(2)   //ele direciona para a posicao da lista 
-        .click()
-        cy.get('#tab-description ').should('contain','Fleet of foot or slow')
+        produtosPage.buscarProdutoLista('Ariel Roll Sleeve Sweatshirt')
+        cy.get('#tab-title-description > a').should('contain','Descrição')
+    });
+
+
+    it.only('Deve buscar um produto com sucesso', () => {
+        let produto='Ajax Full-Zip Sweatshirt'
+        produtosPage.buscarProduto(produto)
+        cy.get('.product_title').should('contain',produto)
+    });
+    it('Deve visitar a página do produto ', () => {
+        
+    });
+    it('Deve adicionar produto ao carrinho', () => {
+        
     });
 });
