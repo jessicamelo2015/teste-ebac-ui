@@ -14,7 +14,7 @@ const perfil= require('../../fixtures/perfil.json')
             cy.get('#password').type('rafinha2015@')
             cy.get('.woocommerce-form > .button').click()
 
-            cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain','Olá, jessicamelo2015 (não é jessicamelo2015? Sair)')
+            cy.get('a > .hidden-xs').should('contain','Welcome jessicamelo2015jessica.qa !')
         })
 
         it('Deve exibir uma mensagem de erro ao inserir usuário inválido', () => {
@@ -40,7 +40,7 @@ const perfil= require('../../fixtures/perfil.json')
             cy.get('#password').type(perfil.senha)
             cy.get('.woocommerce-form > .button').click()
 
-            cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain','Olá, jessicamelo2015 (não é jessicamelo2015? Sair)')
+            cy.get('.woocommerce-MyAccount-content > :nth-child(3)').should('contain', 'A partir do painel de controle de sua conta, você pode ver suas compras recentes, gerenciar seus endereços de entrega e faturamento, e editar sua senha e detalhes da conta.')
 
             
         });
@@ -50,13 +50,13 @@ const perfil= require('../../fixtures/perfil.json')
             cy.get('#username').type(dados.usuario,{log:false})
             cy.get('#password').type(dados.senha,{log:false})
             cy.get('.woocommerce-form > .button').click()
-            cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain','Olá, jessicamelo2015 (não é jessicamelo2015? Sair)')
+            cy.get('.woocommerce-MyAccount-content > :nth-child(3)').should('contain', 'A partir do painel de controle de sua conta, você pode ver suas compras recentes, gerenciar seus endereços de entrega e faturamento, e editar sua senha e detalhes da conta.')
            })
             
         });
         it('Deve fazer login com sucesso- usando Comandos customizados', () => {
             cy.login('jessica@melo.com','123456')
-            cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain','Olá, jessica (não é jessica? Sair)')
+            cy.get('.woocommerce-MyAccount-content > :nth-child(3)').should('contain', 'A partir do painel de controle de sua conta, você pode ver suas compras recentes, gerenciar seus endereços de entrega e faturamento, e editar sua senha e detalhes da conta.')
         });
 
         
